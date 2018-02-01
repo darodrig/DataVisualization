@@ -5,10 +5,8 @@ import matplotlib.pyplot as plt
 from matplotlib.ticker import FuncFormatter
 
 
-ST = [.1]
-TA = [.9]
-#ST = [.1, .3, .12, .5, .1, .3, .12, .5]
-#TA = [.9, .7, .88, .5, .9, .7, .88, .5]
+ST = [.1, .3, .12, .5, .1, .3, .12, .5]
+TA = [.9, .7, .88, .5, .9, .7, .88, .5]
 def to_percent(y, position):
     # Ignore the passed in position. This has the effect of scaling the default
     # tick locations.
@@ -20,7 +18,7 @@ def to_percent(y, position):
     else:
         return s + '%'
 
-def plot_talk_ratio(ta, st):
+def plot_talk_ratio(ta, st, ):
     N = len(ta)
     ind = np.arange(N)    # the x locations for the groups
     width = .5
