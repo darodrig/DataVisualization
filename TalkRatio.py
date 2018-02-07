@@ -8,16 +8,16 @@ from matplotlib.ticker import FuncFormatter
 ST = [.1, .3, .12, .5, .1, .3, .12, .5]
 TA = [.9, .7, .88, .5, .9, .7, .88, .5]
 dates = ['12/1', '12/2', '12/3', '12/4', '12/5', '12/6', '12/7', '12/8']
-def to_percent(y, position):
+def to_percent(p, position):
     # Ignore the passed in position. This has the effect of scaling the default
     # tick locations.
-    s = str(100 * y)
+    p = 100 * p
 
     # The percent symbol needs escaping in latex
     if matplotlib.rcParams['text.usetex'] is True:
-        return s + r'$\%$'
+        return '{:.1f}'.format(p) + r'$\%$'
     else:
-        return s + '%'
+        return '{:.1f}'.format(p) + '%'
 
 def plot_talk_ratio(ta, st, dates):
     N = len(ta)
