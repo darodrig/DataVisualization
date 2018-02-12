@@ -8,17 +8,21 @@ SAMPLE = {
 def plot_question_count(data):
 	source = ColumnDataSource(data=data)
 	plot = figure(tools = "")
-	plot.title.text = 'Question Count'
+	plot.title.text = 'Content Question Count'
 	plot.title.align = 'center'
 	plot.title.text_font_size = '24px'
 
 	plot.xaxis.axis_label = 'Time (minutes)'
-	plot.yaxis.axis_label = 'Number of Quesions'
+	plot.yaxis.axis_label = 'Number of Content Questions'
+	plot.xaxis.minor_tick_line_color = None
+	plot.yaxis.minor_tick_line_color = None
 
 	output_file("line.html")
 
 	plot.patch([0, data['x'][-1], 0], [0, data['y'][-1], data['y'][-1]],
 				fill_color = "#CCFFD1", line_color = "#CCFFD1", legend = 'Goal')
+	plot.legend.location = "bottom_right"
+
 	plot.line(data['x'], data['y'], line_width=2, line_color = "black")
 	plot.circle(data['x'], data['y'], fill_color="black", size=8)
 	plot.x_range = Range1d(0, data['x'][-1])
