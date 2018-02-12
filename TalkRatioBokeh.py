@@ -33,7 +33,7 @@ def plot_talk_ratio(data):
 	goal_line = Span(location=.2, dimension='width', line_color='#3FE258', line_width=2, line_dash = "dashed")
 
 	plot.renderers.extend([goal_line])
-	gridplot([[plot]], sizing_mode='scale_width')
+	gridplot([[plot]], sizing_mode='stretch_width')
 	file_html(plot, CDN, "talk_ratio")
 	show(plot)
 
