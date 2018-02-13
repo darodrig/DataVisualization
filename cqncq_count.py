@@ -39,7 +39,7 @@ p.legend.orientation = "vertical"
 p.yaxis.axis_label = '# of Questions You Asked'
 
 #Goal Line
-p.line([0, .5], [loc/5, loc/5], line_width=4, color = '#3FE258', line_dash = 'dashed')
+p.line([0, .5], [loc/5, loc/5], line_width=4, color = '#3FE258', line_dash = 'dashed', legend = 'Goal')
 
 #Style
 p.yaxis.major_tick_line_color = None
