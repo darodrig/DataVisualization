@@ -1,11 +1,11 @@
 from bokeh.plotting import figure, output_file, show
-from bokeh.models import ColumnDataSource, Range1d
+from bokeh.models import ColumnDataSource, Range1d, Title
 
 SAMPLE = { 
 			'x' : [0, 5, 10, 15, 20],
 			'y' : [0, 1, 4, 4, 6]
 		}
-def plot_question_count(data):
+def plot_question_count(data, date):
 	source = ColumnDataSource(data=data)
 	plot = figure(tools = "")
 	plot.title.text = 'Content Question Count'
@@ -21,6 +21,7 @@ def plot_question_count(data):
 
 	plot.patch([0, data['x'][-1], 0], [0, data['y'][-1], data['y'][-1]],
 				fill_color = "#CCFFD1", line_color = "#CCFFD1", legend = 'Goal')
+
 	plot.legend.location = "bottom_right"
 
 	plot.line(data['x'], data['y'], line_width=2, line_color = "black")
@@ -28,7 +29,10 @@ def plot_question_count(data):
 	plot.x_range = Range1d(0, data['x'][-1])
 	plot.y_range = Range1d(0, data['y'][-1])
 
+	plot.add_layout(Title(text="Data from %s" % date, align = "left", text_font_size = "12px",
+						text_font_style = "italic", text_alpha = .5), "below")
+
 	show(plot)
 
 
-plot_question_count(SAMPLE)
+plot_question_count(SAMPLE, "12/07/2018")

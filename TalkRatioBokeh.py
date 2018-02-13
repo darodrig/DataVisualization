@@ -34,11 +34,10 @@ def plot_talk_ratio(data, date):
 				   source=source, color = '#E2793F', legend = 'TA')	
 	plot.ray(x=0, y=.2, length=0, angle = 0, line_width = 2,
 					line_color = "#3FE258", line_dash = "dashed", legend = "Goal")
-	plot.add_layout(Title(text="Data from %s" % date, align = "left", text_font_size = "12px",
-					text_font_style = "italic", text_alpha = .5), "below")
-	# plot.add_layout(Label(text ="Howdy"), "below")
-	# gridplot([[plot]], sizing_mode='scale_width')
-	# file_html(plot, CDN, "talk_ratio")
+	gridplot([[plot]], sizing_mode='scale_width')
+	file_html(plot, CDN, "talk_ratio")
 	show(plot)
+
+	
 plot_talk_ratio(SAMPLE, "12/07/2018")
 
