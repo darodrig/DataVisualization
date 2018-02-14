@@ -9,8 +9,7 @@ def plot_question_count(data, date):
 	source = ColumnDataSource(data=data)
 	plot = figure(tools = "")
 	plot.title.text = 'Content Question Count'
-	plot.title.align = 'center'
-	plot.title.text_font_size = '24px'
+
 
 	plot.xaxis.axis_label = 'Time (minutes)'
 	plot.yaxis.axis_label = 'Number of Content Questions'
