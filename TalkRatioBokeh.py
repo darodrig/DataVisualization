@@ -21,8 +21,6 @@ def plot_talk_ratio(data, date):
 	plot = bf(tools = "", x_range = source.data["x"])
 
 	plot.title.text = 'Talk Ratio'
-	plot.title.align = 'center'
-	plot.title.text_font_size = '24px'
 
 	plot.xaxis.axis_label = 'Date'
 	plot.y_range = Range1d(0, 1)
@@ -35,13 +33,13 @@ def plot_talk_ratio(data, date):
 	plot.ray(x=0, y=.2, length=0, angle = 0, line_width = 2,
 					line_color = "#3FE258", line_dash = "dashed", legend = "Goal")
 
-	plot.title.text_font_size = '28pt'
+	plot.title.text_font_size = '18pt'
 	plot.title.align = 'center'
-	plot.xaxis.axis_label_text_font_size = '20pt'
-	plot.yaxis.axis_label_text_font_size = '20pt'
+	plot.xaxis.axis_label_text_font_size = '10pt'
+	plot.yaxis.axis_label_text_font_size = '10pt'
 	plot.yaxis.axis_label_text_font_style = "normal"
-	plot.xaxis.major_label_text_font_size = '16pt'
-	plot.yaxis.major_label_text_font_size = '16pt'
+	plot.xaxis.major_label_text_font_size = '10pt'
+	plot.yaxis.major_label_text_font_size = '10pt'
 	plot.xaxis.major_tick_line_color = None
 	
 	gridplot([[plot]], sizing_mode='scale_width')

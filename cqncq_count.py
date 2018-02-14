@@ -49,14 +49,14 @@ def main(data, date):
 	#Style
 	p.yaxis.major_tick_line_color = None
 
-	p.title.text_font_size = '28pt'
-	p.title.align = 'center'
-	p.xaxis.axis_label_text_font_size = '20pt'
-	p.yaxis.axis_label_text_font_size = '20pt'
-	p.yaxis.axis_label_text_font_style = "normal"
-	p.xaxis.major_label_text_font_size = '16pt'
-	p.yaxis.major_label_text_font_size = '16pt'
-	p.xaxis.major_tick_line_color = None
+	plot.title.text_font_size = '18pt'
+	plot.title.align = 'center'
+	plot.xaxis.axis_label_text_font_size = '10pt'
+	plot.yaxis.axis_label_text_font_size = '10pt'
+	plot.yaxis.axis_label_text_font_style = "normal"
+	plot.xaxis.major_label_text_font_size = '10pt'
+	plot.yaxis.major_label_text_font_size = '10pt'
+	plot.xaxis.major_tick_line_color = None
 
 	show(p)
 

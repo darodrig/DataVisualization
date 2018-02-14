@@ -32,13 +32,13 @@ def plot_question_count(data, date):
 	plot.add_layout(Title(text="Data from %s" % date, align = "left", text_font_size = "12px",
 						text_font_style = "italic", text_alpha = .5), "below")
 	
-	plot.title.text_font_size = '28pt'
+	plot.title.text_font_size = '18pt'
 	plot.title.align = 'center'
-	plot.xaxis.axis_label_text_font_size = '20pt'
-	plot.yaxis.axis_label_text_font_size = '20pt'
+	plot.xaxis.axis_label_text_font_size = '10pt'
+	plot.yaxis.axis_label_text_font_size = '10pt'
 	plot.yaxis.axis_label_text_font_style = "normal"
-	plot.xaxis.major_label_text_font_size = '16pt'
-	plot.yaxis.major_label_text_font_size = '16pt'
+	plot.xaxis.major_label_text_font_size = '10pt'
+	plot.yaxis.major_label_text_font_size = '10pt'
 	plot.xaxis.major_tick_line_color = None
 
 	show(plot)
