@@ -18,7 +18,7 @@ SAMPLE = {
 def plot_talk_ratio(data, date):
 	source = ColumnDataSource(data=data)
 
-	plot = bf(tools = "xpan", x_range = source.data["x"])
+	plot = bf(tools = "", x_range = source.data["x"])
 
 	plot.title.text = 'Talk Ratio'
 	plot.title.align = 'center'

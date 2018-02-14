@@ -17,7 +17,7 @@ SAMPLE = {
 def plot_talk_ratio(data):
 	source = ColumnDataSource(data=data)
 
-	plot = bf(tools = "xpan", x_range = source.data["x"])
+	plot = bf(tools = "", x_range = source.data["x"])
 
 	plot.title.text = 'Minutes Elapsed per Question'
 	plot.title.align = 'center'
