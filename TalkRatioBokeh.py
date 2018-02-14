@@ -34,6 +34,16 @@ def plot_talk_ratio(data, date):
 				   source=source, color = '#E2793F', legend = 'TA')	
 	plot.ray(x=0, y=.2, length=0, angle = 0, line_width = 2,
 					line_color = "#3FE258", line_dash = "dashed", legend = "Goal")
+
+	plot.title.text_font_size = '28pt'
+	plot.title.align = 'center'
+	plot.xaxis.axis_label_text_font_size = '20pt'
+	plot.yaxis.axis_label_text_font_size = '20pt'
+	plot.yaxis.axis_label_text_font_style = "normal"
+	plot.xaxis.major_label_text_font_size = '16pt'
+	plot.yaxis.major_label_text_font_size = '16pt'
+	plot.xaxis.major_tick_line_color = None
+	
 	gridplot([[plot]], sizing_mode='scale_width')
 	file_html(plot, CDN, "talk_ratio")
 	show(plot)

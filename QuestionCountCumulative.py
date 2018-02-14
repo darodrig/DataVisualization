@@ -35,6 +35,15 @@ def plot_talk_ratio(data):
 	plot.vbar(x='x', bottom = 0, top = 'y',width=0.5, source=source, color = "black")
 	goal_line = Span(location=5, dimension='width', line_color='#3FE258', line_width=2, line_dash = "dashed")
 
+	plot.title.text_font_size = '28pt'
+	plot.title.align = 'center'
+	plot.xaxis.axis_label_text_font_size = '20pt'
+	plot.yaxis.axis_label_text_font_size = '20pt'
+	plot.yaxis.axis_label_text_font_style = "normal"
+	plot.xaxis.major_label_text_font_size = '16pt'
+	plot.yaxis.major_label_text_font_size = '16pt'
+	plot.xaxis.major_tick_line_color = None
+
 	plot.renderers.extend([goal_line])
 	show(plot)
 
