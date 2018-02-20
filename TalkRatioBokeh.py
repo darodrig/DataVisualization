@@ -26,7 +26,7 @@ def plot_talk_ratio(data, date):
 	plot.y_range = Range1d(0, 1)
 	plot.yaxis.formatter = NumeralTickFormatter(format="0.0%")
 
-	plot.vbar(x='x', bottom=0, top='ta_talk_perc', width=0.5,
+	plot.vbar(x='x', bottom=0, top='st_talk_perc', width=0.5,
 				   source=source, color = '#3FA5E2', legend = 'Student')
 	plot.vbar(x='x', bottom='ta_talk_perc', top=1, width=0.5,
 				   source=source, color = '#E2793F', legend = 'TA')	

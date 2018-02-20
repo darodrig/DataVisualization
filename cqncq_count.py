@@ -1,6 +1,6 @@
 from bokeh.core.properties import value
 from bokeh.io import show, output_file
-from bokeh.models import ColumnDataSource, Title
+from bokeh.models import ColumnDataSource, Title, Range1d
 from bokeh.plotting import figure
 from bokeh.transform import dodge
 import numpy as np
@@ -23,7 +23,7 @@ def main(data, date):
 
 	source = ColumnDataSource(data=data)
 
-	p = figure(x_range=dates, y_range=(0, cq[0]+.1*cq[0]), plot_height=600, title="Question Count",
+	p = figure(x_range=dates, plot_height=600, title="Question Count",
 	           toolbar_location=None, tools="")
 
 	p.vbar(x=dodge('dates', -0.25, range=p.x_range), top='Content Question', width=0.4, source=source,
@@ -39,6 +39,8 @@ def main(data, date):
 	p.xgrid.grid_line_color = None
 	p.legend.location = "top_right"
 	p.legend.orientation = "vertical"
+	p.y_range = Range1d(0, int(1.5 * max(data["Content Question"][0],
+						data["Non-content Question"][0])))
 
 	#Labels
 	p.yaxis.axis_label = '# of Questions You Asked'
@@ -49,14 +51,14 @@ def main(data, date):
 	#Style
 	p.yaxis.major_tick_line_color = None
 
-	plot.title.text_font_size = '18pt'
-	plot.title.align = 'center'
-	plot.xaxis.axis_label_text_font_size = '10pt'
-	plot.yaxis.axis_label_text_font_size = '10pt'
-	plot.yaxis.axis_label_text_font_style = "normal"
-	plot.xaxis.major_label_text_font_size = '10pt'
-	plot.yaxis.major_label_text_font_size = '10pt'
-	plot.xaxis.major_tick_line_color = None
+	p.title.text_font_size = '18pt'
+	p.title.align = 'center'
+	p.xaxis.axis_label_text_font_size = '10pt'
+	p.yaxis.axis_label_text_font_size = '10pt'
+	p.yaxis.axis_label_text_font_style = "normal"
+	p.xaxis.major_label_text_font_size = '10pt'
+	p.yaxis.major_label_text_font_size = '10pt'
+	p.xaxis.major_tick_line_color = None
 
 	show(p)
 
