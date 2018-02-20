@@ -11,8 +11,8 @@ import numpy as np
 
 SAMPLE = { 
 			'x' : ['12/1', '12/3', '12/5', '12/7'],
-			'ta_talk_perc' : [.343434, .343434, .129032, .281250],
-			'st_talk_perc' : [.656566, .656566, .870968, .718750]
+			'ta_talk_perc' : [.343434, .343434, .129032, .10],
+			'st_talk_perc' : [.656566, .656566, .870968, .90]
 		}
 
 def plot_talk_ratio(data, date):
@@ -28,7 +28,7 @@ def plot_talk_ratio(data, date):
 
 	plot.vbar(x='x', bottom=0, top='st_talk_perc', width=0.5,
 				   source=source, color = '#3FA5E2', legend = 'Student')
-	plot.vbar(x='x', bottom='ta_talk_perc', top=1, width=0.5,
+	plot.vbar(x='x', bottom='st_talk_perc', top=1, width=0.5,
 				   source=source, color = '#E2793F', legend = 'TA')	
 	plot.ray(x=0, y=.2, length=0, angle = 0, line_width = 2,
 					line_color = "#3FE258", line_dash = "dashed", legend = "Goal")
