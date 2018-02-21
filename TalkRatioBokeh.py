@@ -11,8 +11,8 @@ import numpy as np
 
 SAMPLE = { 
 			'x' : ['12/1', '12/3', '12/5', '12/7'],
-			'ta_talk_perc' : [.343434, .343434, .129032, .10],
-			'st_talk_perc' : [.656566, .656566, .870968, .90]
+			'ta_talk_perc' : [.343434, .343434, .129032, .90],
+			'st_talk_perc' : [.656566, .656566, .870968, .10]
 		}
 
 def plot_talk_ratio(data, date):
