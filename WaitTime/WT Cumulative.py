@@ -1,4 +1,3 @@
-import WT_medians
 from bokeh.plotting import figure, output_file, show
 from bokeh.models.glyphs import Line as Line_glyph
 from bokeh.models.glyphs import VBar
@@ -14,19 +13,18 @@ def main(data):
     bar_width = 50
     color = None
 
-    source = ColumnDataSource(data=data)
+    #source = ColumnDataSource(data=data)
 
     p = figure(plot_width=len(WT_medians)*bar_width, plot_height=400,
-                title="Wait Time Cummulative", 
-                xlabel="Recitation", ylabel="Wait Time")
+                title="Wait Time Cummulative")
+    p.xaxis.axis_label = "Recitation"
+    p.yaxis.axis_label = "Wait Time (sec)"
     x_range = range(0,len(WT_medians)) #same as Recitation
     y_range = range(0,11)
     
     #ideal line : LineGlyph
-    I_L_glyph = Line_glyph([0,len(WT_medians)*bar_width],[3,3], 
-                            line_color='green',line_width=2, line_dash=[4,4])
-    p.add_Iglyph(source, glyph)
-        
+    p.line([0,x[-1]],[3,3], line_color='green', line_width=2,line_dash=[4,4])  #ideal line
+
     for i in x_range:
         #Bar for each recitation : VBar Glyph 
         Bar_glyph = VBar(x=[i*bar_width,(i+1)*bar_width], top=plot_height, 
@@ -42,4 +40,4 @@ def main(data):
                                 line_color=color,line_width=3)
         p.add_Mglyph(source, glyph)
     
-main(data)
+    show(p)
