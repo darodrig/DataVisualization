@@ -9,11 +9,12 @@ medians = [5, 4, 6, 3]
 third_quart = [6, 5, 8, 5]
 maxs = [9, 8, 9, 7]
 
-output_file("WT_Cumulative.html")
+#output_file("WT_Cumulative.html")
 
 def main(data):
     p = figure(x_range=recitation_dates, y_range=(0,11), title="Wait Time Multiple Days")
     
+    p.toolbar_location=None
     p.add_layout(BoxAnnotation(bottom=3, top=11, fill_alpha=0.1, fill_color='#3FE258')) #GoodWT
     p.add_layout(BoxAnnotation(top=3, fill_alpha=0.1, fill_color='#E2793F')) #BadWT
     

@@ -4,15 +4,18 @@ from bokeh.models.glyphs import VBar
 from bokeh.models import ColumnDataSource, Title, Range1d, BoxAnnotation
 import numpy as np
 
+#Data Set
+WT_medians = [4,2,1,0,6] 
+Recitations = [0,1,2,3,4] #WT_medians_index
+y = WT_medians 
+x = Recitations
+WT_ideal = 3 
+bar_width = 50
+color = None
+data = [x,y]
 
 def main(data):
     
-    WT_medians = [4,2,1,0,6]
-    Recitations = [0,1,2,3,4] #WT_medians_index
-    WT_ideal = 3 
-    bar_width = 50
-    color = None
-
     #source = ColumnDataSource(data=data)
 
     p = figure(plot_width=len(WT_medians)*bar_width, plot_height=400,
@@ -23,12 +26,12 @@ def main(data):
     y_range = range(0,11)
     
     #ideal line : LineGlyph
-    p.line([0,x[-1]],[3,3], line_color='green', line_width=2,line_dash=[4,4])  #ideal line
+    p.line([0,len(x)],[3,3], line_color='green', line_width=2,line_dash=[4,4])  #ideal line
 
     for i in x_range:
         #Bar for each recitation : VBar Glyph 
-        Bar_glyph = VBar(x=[i*bar_width,(i+1)*bar_width], top=plot_height, 
-                            bottom=0, width=0.5, fill_color="")
+        Bar_glyph = VBar(x=[i*bar_width,(i+1)*bar_width], top=400, 
+                            bottom=0, width=0.5, fill_color="grey")
         p.add_glyph(source, glyph)
         #median line : Line Glyph 
         if j >= WT_ideal: 

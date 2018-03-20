@@ -3,7 +3,7 @@ from bokeh.models.glyphs import Line as Line_glyph
 from bokeh.models import ColumnDataSource, Title, Range1d, BoxAnnotation
 import numpy as np
 
-output_file("WTDaily1.html")
+#output_file("WTDaily1.html")
 
 #Data Set (Variable inputs)
 class_duration = 80 #how long class was (in minutes)
@@ -13,8 +13,9 @@ y = [5,2,6,3,4,1,2,7] #wait times
 #Figure
 def main(data):
     p = figure(plot_width=600, plot_height=600,title="Wait Time After Question")
-    #background fill color : Box Annotations
     
+    #background fill color : Box Annotations
+    p.toolbar_location=None
     p.add_layout(BoxAnnotation(bottom=3, top=11, fill_alpha=0.1, fill_color='#3FE258')) #GoodWT
     p.add_layout(BoxAnnotation(top=3, fill_alpha=0.1, fill_color='#E2793F')) #BadWT
     
@@ -46,7 +47,7 @@ def main(data):
     else: 
         WT_median_color = "#E2793F"
 
-    p.line(x=[0, class_duration], y=[WT_median,WT_median],
+    p.line([0, class_duration], [WT_median,WT_median],
                             line_color=WT_median_color, line_width=2) #median line
                             
     show(p)
