@@ -20,6 +20,9 @@ def main(data):
     
     p.xaxis.axis_label = "Class Date"
     p.yaxis.axis_label = "Wait Time (seconds)"
+    
+    #goal line    
+    p.line([0,len(recitation_dates)],[3,3], line_color="#3FE258", line_dash=[4,4], line_width=3)
 
     for i in range(len(recitation_dates)):
         #horizontal boxplot lines
@@ -34,10 +37,7 @@ def main(data):
         p.line(x=[i+.75,i+.75], y=[first_quart[i],third_quart[i]], line_color="black", line_width=3)
         p.line(x=[i+.5,i+.5], y=[first_quart[i],mins[i]], line_color="black", line_width=3)
         p.line(x=[i+.5,i+.5], y=[third_quart[i],maxs[i]], line_color="black", line_width=3)
-    
-    #goal line    
-    p.line([0,len(recitation_dates)],[3,3], line_color="#3FE258", line_dash=[4,4], line_width=3)
-    
+
     #style
     p.title.text_font_size = '28pt'
     p.title.align = 'center'
