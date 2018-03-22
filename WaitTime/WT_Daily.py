@@ -8,13 +8,18 @@ from bokeh.core.properties import value
 # Data Set (Variable inputs)
 class_duration = 80  # how long class was (in minutes)
 x = [8, 80]  # when questions were asked
-y = [5,10]  # wait times
+y = [5,7]  # wait times
 date = "12/07/2018"
 
 # Figure
 def main(data):
-    p = figure(plot_width=600, plot_height=600, title="Wait Time After Question")
-
+    y_axis_range = Range1d(0,10)
+    if max(filter(None, y)) >= 10: 
+        y_axis_range = Range1d(0,12)
+    p = figure(plot_width=325, plot_height=325)
+    p.add_layout(Title(text="Wait Time After Question", align="center", text_font_size="14pt",
+                          text_font_style="bold", text_alpha=1), "above")
+                          
     # background fill color : Box Annotations
     p.toolbar_location = None
     # The background color stuff
@@ -23,10 +28,10 @@ def main(data):
 
     p.line([0, class_duration+2], [3, 3], line_color='#3FE258', line_width=2, line_dash=[4, 4])  # ideal line
 
-    p.circle(x, y, size=15, color="black", alpha=1, legend=value("Content Question"))
+    p.circle(x, y, size=10, color="black", alpha=1, legend=value("Content Question"))
     p.grid.grid_line_color = None
     p.background_fill_color = "white"
-    p.y_range = Range1d(0, 12)
+    p.y_range = y_axis_range
     p.x_range = Range1d(0, class_duration+2)
     p.xaxis.axis_label = "Class Duration (minutes)"
     p.yaxis.axis_label = "Wait Time (seconds)"
@@ -34,15 +39,23 @@ def main(data):
     # style
     p.title.text_font_size = '18pt'
     p.title.align = 'center'
-    p.xaxis.axis_label_text_font_size = '14pt'
-    p.yaxis.axis_label_text_font_size = '14pt'
+    p.xaxis.axis_label_text_font_size = '11pt'
+    p.yaxis.axis_label_text_font_size = '11pt'
     p.yaxis.axis_label_text_font_style = "normal"
     p.xaxis.axis_label_text_font_style = "normal"
     p.xaxis.major_label_text_font_size = '10pt'
     p.yaxis.major_label_text_font_size = '10pt'
     p.xaxis.minor_tick_line_color = None
     p.legend.location = "top_right"
-
+    p.legend.label_height =10
+    p.legend.glyph_width = 8
+    p.legend.glyph_height = 5
+    p.legend.spacing = 1
+    p.legend.padding = 3
+    p.legend.margin = 1
+    p.legend.label_text_font_size = '6pt'
+    p.legend.background_fill_alpha = 0.8
+    
     # Date
     p.add_layout(Title(text="Data from %s" % date, align="left", text_font_size="12px",
                           text_font_style="italic", text_alpha=.5), "below")
