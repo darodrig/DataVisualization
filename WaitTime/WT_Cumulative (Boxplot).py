@@ -30,7 +30,11 @@ def main(data):
     #goal line    
     p.line([0,len(recitation_dates)],[3,3], line_color="#3FE258", line_dash=[4,4], line_width=3)
     
-    if len(mins)>=1 and (None not in mins) and (None not in first_quart) and (None not in medians) and (None not in third_quart) and (None not in maxs):
+    if (len(mins)>=1 and (all(v != None for v in mins)) and 
+                        (all(v != None for v in first_quart)) and 
+                        (all(v != None for v in medians)) and 
+                        (all(v != None for v in third_quart)) and 
+                        (all(v != None for v in maxs))):
         for i in range(len(recitation_dates)):
             #horizontal boxplot lines
             p.line(x=[i+.375,i+.625], y=[mins[i],mins[i]], line_color="black", line_width=3)
