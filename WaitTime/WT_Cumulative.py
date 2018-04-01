@@ -21,9 +21,7 @@ recitation_dates=["12/1", "12/8", "12/15", "12/22"]
 
 def main(data):
     source = ColumnDataSource(data=data)
-    y_axis_range = (0,10)
-    if max(filter(None, source.data['maxs'])) >= 10: 
-        y_axis_range = (0,11)
+    y_axis_range = (0,11)
     p = figure(plot_width=325, plot_height=325,x_range=source.data['recitation_dates'], y_range=y_axis_range)
     p.add_layout(Title(text="Wait Time Multiple Days", align="center", text_font_size="14pt",
                           text_font_style="bold", text_alpha=1), "above")
@@ -42,12 +40,6 @@ def main(data):
     for i in range(len(source.data['recitation_dates'])):
         if source.data['medians'][i] == None:
             continue
-        if (all(v == None for v in data["mins"]) and 
-            all(v == None for v in data["first_quart"]) and 
-            all(v == None for v in data["medians"]) and 
-            all(v == None for v in data["third_quart"]) and 
-            all(v == None for v in data["maxs"])):
-                continue
         #horizontal boxplot lines
         p.line(x=[i+.375,i+.625], y=[source.data['mins'][i],source.data['mins'][i]], line_color="black", line_width=line_w)
         p.line(x=[i+.25,i+.75], y=[source.data['first_quart'][i],source.data['first_quart'][i]], line_color="black", line_width=line_w)
